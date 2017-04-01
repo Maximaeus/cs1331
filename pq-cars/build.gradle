@@ -1,0 +1,102 @@
+apply plugin: 'java'
+apply plugin: 'checkstyle'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile 'junit:junit:4.12'
+}
+
+checkstyle {
+    configFile = new File(rootDir, 'cs1331-checkstyle.xml')
+    ignoreFailures = true
+    showViolations = false
+}
+
+test {
+    ignoreFailures = true;
+}
+
+task checkstyle(dependsOn: ['classes', 'checkstyleMain', 'clean']) << {
+    def htmlReport = new java.io.File("${rootDir}/build/reports/checkstyle/main.html")
+    if (htmlReport.exists()) {
+        if (java.awt.Desktop.isDesktopSupported()) {
+            def desktop = java.awt.Desktop.getDesktop()
+            if (desktop == null) {
+                print "ERROR: Could not open the checkstyle report file. "
+                print "Please open it manually at: "
+                println htmlReport.toURI().toString()
+            } else {
+                try {
+                    desktop.browse(htmlReport.toURI())
+                } catch (Exception e) {
+                    print "ERROR: Could not open the checkstyle report file. "
+                    print "Please open it manually at: "
+                    println htmlReport.toURI().toString()
+                }
+            }
+        } else {
+            print "ERROR: Could not open the checkstyle report file."
+            print "Please open it manually at: "
+            println htmlReport.toURI().toString()
+        }
+    } else {
+        print "ERROR: checkstyle report not found. Are you sure there are "
+        println "java files located in ${rootDir}/src/main/java?"
+    }
+}
+
+
+task openTestReport(dependsOn: ['classes', 'test', 'clean']) << {
+    def htmlReport = new java.io.File("${rootDir}/build/reports/tests/test/index.html")
+    if (htmlReport.exists()) {
+        if (java.awt.Desktop.isDesktopSupported()) {
+            def desktop = java.awt.Desktop.getDesktop()
+            if (desktop == null) {
+                print "ERROR: Could not open the test report file. "
+                print "Please open it manually at: "
+                println htmlReport.toURI().toString()
+            } else {
+                try {
+                    desktop.browse(htmlReport.toURI())
+                } catch (Exception e) {
+                    print "ERROR: Could not open the test report file. "
+                    print "Please open it manually at: "
+                    println htmlReport.toURI().toString()
+                }
+            }
+        } else {
+            print "ERROR: Could not open the test report file."
+            print "Please open it manually at: "
+            println htmlReport.toURI().toString()
+        }
+    } else {
+        print "ERROR: test report not found. Are you sure there are "
+        println "java files located in ${rootDir}/src/main/java?"
+    }
+}
+
+
+//Set up some dependencies
+test.dependsOn clean
+test.finalizedBy openTestReport
+
+// Make sure that clean is always run first
+build.mustRunAfter clean
+assemble.mustRunAfter clean
+jar.mustRunAfter clean
+check.mustRunAfter clean
+checkstyleMain.mustRunAfter clean
+checkstyleTest.mustRunAfter clean
+test.mustRunAfter clean
+classes.mustRunAfter clean
+compileJava.mustRunAfter clean
+processResources.mustRunAfter clean
+testClasses.mustRunAfter clean
+compileTestJava.mustRunAfter clean
+processTestResources.mustRunAfter clean
+
+jar.enabled = false
+checkstyleTest.enabled = false

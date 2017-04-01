@@ -1,0 +1,23 @@
+a collection is any object that you can add things to, contains() something, can be isEmpty(), has an iterator(), can utilize remove()
+has a size()
+
+List extends collection, adds methods that have to do with order
+ArrayList extends LIst
+
+**Generics**
+<E> designates that a constructor takes E, an element
+Unit tests vs Type Systems
+type inferencing happens at compile time
+
+**variance**
+Java classes are invariant
+
+Simpkins Programming Paradigms
+
+**Wrapper classes**
+Classes for primitives.
+
+Raw collection: collection with no assigned type
+will not auto unbox
+
+HashSet

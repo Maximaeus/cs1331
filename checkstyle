@@ -1,0 +1,4 @@
+#!/bin/bash
+#Checkstyle
+
+java -jar ~/Dropbox/Spring2017/cs1331/checkstyle-6.2.2.jar -a $1

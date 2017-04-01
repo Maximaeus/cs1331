@@ -1,0 +1,277 @@
+/**
+ * Represents a Player in the game of Duel Monsters Abridged
+ *
+ * @author jmurphy61
+ * @version 1.0
+ *
+ */
+public class Player {
+    private CardDeck mainDeck;
+    private SpecialDeck specialDeck;
+    private Card[] hand = new Card[5];
+    private Special nextSpecial;
+    private int lifePoints;
+
+    /**
+     * Creates a Player with passed parameters
+     * and 5000 lifePoints
+     *
+     * @param mainDeck main CardDeck of the Player
+     * @param specialDeck SpecialDeck of the Player
+     *
+     */
+    public Player(CardDeck mainDeck,
+                  SpecialDeck specialDeck) {
+        this(mainDeck, specialDeck, 5000);
+    }
+
+    /**
+     * Creates a Player with passed parameters
+     *
+      * @param mainDeck main CardDeck of the Player
+     * @param specialDeck SpecialDeck of the Player
+     * @param lifePoints integer number of lifePoints
+     * the Player starts with
+     *
+     */
+    public Player(CardDeck mainDeck,
+                  SpecialDeck specialDeck,
+                  int lifePoints) {
+        this.mainDeck = mainDeck;
+        this.specialDeck = specialDeck;
+        this.lifePoints = lifePoints;
+    }
+
+    /**
+     * @return the mainDeck of this Player
+     *
+     */
+    public CardDeck mainDeck() {
+        return mainDeck;
+    }
+
+    /**
+     * @return the specialDeck of this Player
+     *
+     */
+    public SpecialDeck specialDeck() {
+        return specialDeck;
+    }
+
+    /**
+     * @return this Player's current hand
+     *
+     */
+    public Card[] getHand() {
+        return hand;
+    }
+
+    /**
+     * @return this Player's nextSpecial
+     *
+     */
+    public Special getNextSpecial() {
+        return nextSpecial;
+    }
+
+    /**
+     * @return this Player's lifePoints
+     *
+     */
+    public int getLifePoints() {
+        return lifePoints;
+    }
+
+    /**
+     * Sets this Player's mainDeck
+     *
+     * @param newMainDeck new mainDeck for this Player
+     *
+     */
+    public void setMainDeck(CardDeck newMainDeck) {
+        this.mainDeck = newMainDeck;
+    }
+
+    /**
+     * Sets this Player's specialDeck
+     *
+     * @param newSpecialDeck new specialDeck for this Player
+     *
+     */
+    public void setSpecialDeck(SpecialDeck newSpecialDeck) {
+        this.specialDeck = newSpecialDeck;
+    }
+
+    /**
+     * Sets this Player's hand
+     *
+     * @param newHand new hand for this Player
+     *
+     */
+    public void setHand(Card[] newHand) {
+        this.hand = newHand;
+    }
+
+    /**
+     * Sets this Player's nextSpecial
+     *
+     * @param newNextSpecial new nextSpecial for this Player
+     *
+     */
+    public void setNextSpecial(Special newNextSpecial) {
+        this.nextSpecial = newNextSpecial;
+    }
+
+    /**
+     * Sets this Player's lifePoints
+     *
+     * @param newLifePoints new lifePoints for this Player
+     *
+     */
+    public void setLifePoints(int newLifePoints) {
+        this.lifePoints = newLifePoints;
+    }
+
+    /**
+     * Attempts to draw a Card from the mainDeck to the hand
+     *
+     * @param count the number of cards to be drawn
+     * @return false if there is a null spot in the hand
+     * but no more Cards in the mainDeck;
+     * otherwise, true
+     *
+     */
+    public boolean draw(int count) {
+        for (int i = 0; i < count; i++) {
+            if (hand[4] != null) {
+                return true;
+            }
+            for (int j = 0; j < 5; j++) {
+                if (hand[i] == null) {
+                    hand[i] = mainDeck.deal();
+                    if (hand[i] == null) {
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
+    /**
+     * If nextSpecial is null, adds the next Special in the
+     * specialDeck to nextSpecial.
+     *
+     */
+    public void drawSpecialCard() {
+        if (getNextSpecial() == null) {
+            setNextSpecial((Special) specialDeck.deal());
+        }
+    }
+
+    /**
+     * Attempts to draw 1 card; if draw() returns false, this
+     * Player will lose 500 lifePoints. Then attemps to draw next
+     * Special Card from specialDeck.
+     *
+     */
+    public void nextTurnPrep() {
+        if (!(draw(1))) {
+            lifePoints -= 500;
+        }
+        drawSpecialCard();
+    }
+
+    /**
+     * Attempts to play the Card in the hand at index whichCard;
+     *
+     * @param whichCard index of hand at which the Card to play is found
+     * @param myField Field of the Player that will play the card
+     * @return false if fails to a Spell/Monster to the field,
+     * if there is no Card at index whichCard,
+     * if index whichCard is greater than 4,
+     * of if Card at whichCard is a TrapCard;
+     * otherwise, true
+     *
+     */
+    public boolean playCardFromHand(int whichCard, Field myField) {
+        if (whichCard > 4) {
+            return false;
+        }
+        if (hand[whichCard] == null) {
+            return false;
+        }
+        if (hand[whichCard] instanceof MonsterCard) {
+            if (myField.addMonsterCard((MonsterCard) hand[whichCard])) {
+                removeCardFromHand(whichCard);
+                return true;
+            }
+        }
+        if (hand[whichCard] instanceof SpellCard) {
+            if (myField.addSpellCard((SpellCard) hand[whichCard])) {
+                removeCardFromHand(whichCard);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Attempts to play the special in nextSpecial
+     *
+     * @param myField Field of the Player playing nextSpecial
+     * @return true if MonsterCards are successfully added to monsters,
+     * or if SpellCards are successfully added to spells;
+     * otherwise, false
+     *
+     */
+    public boolean playSpecial(Field myField) {
+        if (nextSpecial instanceof MonsterCard) {
+            if (myField.addMonsterCard((MonsterCard) nextSpecial)) {
+                nextSpecial = null;
+                return true;
+            }
+        }
+        if (nextSpecial instanceof SpellCard) {
+            if (myField.addSpellCard((SpellCard) nextSpecial)) {
+                nextSpecial = null;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Add change to current lifePoints
+     *
+     * @param change number of lifePoints to be added
+     *
+     */
+    public void changeLifePoints(int change) {
+        setLifePoints(getLifePoints() + change);
+    }
+
+    /**
+     * @return false if lifepoints are less than or equal to zero;
+     * otherwise, true
+     *
+     */
+    public boolean isDefeated() {
+        return lifePoints <= 0;
+    }
+
+    /**
+     * Removed the Card in the hand at index place,
+     * then shifts remaining cards forward in the hand
+     *
+     * @param place index of Card to be removed from hand
+     *
+     */
+    public void removeCardFromHand(int place) {
+        hand[place] = null;
+        for (int i = place; i < 3; i++) {
+            hand[i] = hand[i + 1];
+        }
+        hand[4] = null;
+    }
+}

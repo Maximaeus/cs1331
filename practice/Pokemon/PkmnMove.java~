@@ -1,0 +1,206 @@
+package PokemonGame;
+
+public enum PkmnMove{
+    POUND("Pound",
+        "The target is physically pounded with a long tail, a foreleg, or the like.",
+        "A highly appealing move.",
+        "A basic performance using a move known by the Pokémon.",
+        "Quite an appealing move.",
+        PkmnType.NORMAL,
+        MoveEffect.PHYSICAL,
+        Condition.TOUGH,
+        Utils.b(35),
+        Utils.b(40),
+        Utils.b(100),
+        Utils.b(1),
+        Utils.b(0),
+        Utils.b(0),
+        Utils.b(4),
+        Utils.b(0),
+        Utils.b(3),
+        Utils.b(4),
+        Utils.b(0),
+        true,
+        true,
+        false,
+        false,
+        true,
+        true),
+    TACKLE("Tackle",
+        PkmnType.NORMAL,
+        MoveEffect.PHYSICAL),
+    GROWL;
+
+    private String name;
+    private String description;
+    private String contestDesc;
+    private String superContestDesc;
+    private String contestSpectacularDesc;
+    private PkmnType pkmnType;
+    private MoveEffect moveEffect;
+    private Condition condition;
+    private byte basePP;
+    private byte power;
+    private byte accuracy;
+    private byte range;
+    private byte tmNumber;
+    private byte hmNumber;
+    private byte contestAppeal;
+    private byte contestJam;
+    private byte superContestAppeal;
+    private byte contestSpectacularAppeal;
+    private byte contestSpectacularJam;
+    private boolean contact;
+    private boolean affectedByProtect;
+    private boolean affectedByMagicCoat;
+    private boolean affectedBySnatch;
+    private boolean affectedByMirror;
+    private boolean affectedByKingsRock;
+
+    Move(String name,
+        String description,
+        String contestDesc,
+        String superContestDesc,
+        String contestSpectacularDesc,
+        PkmnType type,
+        MoveEffect moveEffect,
+        Condition condition,
+        byte basePP,
+        byte power,
+        byte accuracy,
+        byte range,
+        byte tmNumber,
+        byte hmNumber,
+        byte contestAppeal,
+        byte contestJam,
+        byte superContestAppeal,
+        byte contestSpectacularAppeal,
+        byte contestSpectacularJam,
+        boolean contact,
+        boolean affectedByProtect,
+        boolean affectedByMagicCoat,
+        boolean affectedBySnatch,
+        boolean affectedByMirror,
+        boolean affectedByKingsRock) {
+        this.name = name;
+        this.description = description;
+        this.contestDesc = contestDesc;
+        this.superContestDesc = superContestDesc;
+        this.contestSpectacularDesc = contestSpectacularDesc;
+        this.pkmnType = pkmnType;
+        this.moveEffect = moveEffect;
+        this.condition = condition;
+        this.basePP = basePP;
+        this.power = power;
+        this.range = range;
+        this.tmNumber = tmNumber;
+        this.hmNumber = hmNumber;
+        this.contestAppeal = contestAppeal;
+        this.contestJam = contestJam;
+        this.superContestAppeal = superContestAppeal;
+        this.contestSpectacularAppeal = contestSpectacularAppeal;
+        this.contestSpectacularJam = contestSpectacularJam;
+        this.contact = contact;
+        this.affectedByProtect = affectedByProtect;
+        this.affectedByMagicCoat = affectedByMagicCoat;
+        this.affectedBySnatch = affectedBySnatch;
+        this.affectedByMirror = affectedByMirror;
+        this.affectedByKingsRock = affectedByKingsRock;
+    };
+
+    public String getName() {
+        return this.name();
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
+
+    public String getContestDesc() {
+        return this.contestDesc;
+    }
+
+    public String getSuperContestDesc() {
+        return this.superContestDesc;
+    }
+
+    public String getContestSpectacularDesc() {
+        return this.contestSpectacularDesc;
+    }
+
+    public PkmnType getPkmnType() {
+        return this.pkmnType;
+    }
+
+    public MoveEffect getPkmnMoveEffect() {
+        return this.pkmnMoveEffect;
+    }
+
+    public Condition getCondition() {
+        return this.condition;
+    }
+
+    public byte getBasePP() {
+        return this.basePP;
+    }
+
+    public byte getPower() {
+        return this.power;
+    }
+
+    public byte getRange() {
+        return this.range;
+    }
+
+    public byte getTMNumber() {
+        return this.tmNumber;
+    }
+
+    public byte getHMNumber() {
+        return this.hmNumber;
+    }
+
+    public byte getContestAppeal() {
+        return this.contestAppeal;
+    }
+
+    public byte getContestJam() {
+        return this.contestJam;
+    }
+
+    public byte getSuperContestAppeal() {
+        return this.superContestAppeal;
+    }
+
+    public byte getContestSpectacularAppeal() {
+        return this.contestSpectacularAppeal;
+    }
+
+    public byte getContestSpectacularJam() {
+        return this.contestSpectacularJam;
+    }
+
+    public boolean getContact() {
+        return this.contact;
+    }
+
+    public boolean getAffectedByProtect() {
+        return this.affectedByProtect;
+    }
+
+    public boolean getAffectedByMagicCoat() {
+        return this.affectedByMagicCoat;
+    }
+
+    public boolean getAffectedBySnatch() {
+        return this.affectedBySnatch;
+    }
+
+    public boolean getAffectedByMirror() {
+        return this.affectedByMirror;
+    }
+
+    public boolean getAffectedByKingsRock() {
+        return this.affectedByKingsRock;
+    }
+}

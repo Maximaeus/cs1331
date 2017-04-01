@@ -1,0 +1,11 @@
+public enum VendingItem {
+    LAYS, DORITOS, COKE, RAMBLIN_RECK_TOY, RUBICKS_CUBE,
+    RAT_CAP, FASET_LANYARD, GRAPHING_CALCULATOR, UGA_DIPLOMA,
+    PIE, CLICKER, CHEETOS, SPRITE, RED_BULL, RAMEN;
+
+    private float price = 0.0f;
+
+    private VendingItem(float price){
+	this.price = price;
+    }
+}

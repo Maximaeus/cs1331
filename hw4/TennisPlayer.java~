@@ -1,0 +1,6 @@
+public class TennisPlayer extends Athlete {
+
+    public TennisPlayer() {
+        super();
+    }
+}

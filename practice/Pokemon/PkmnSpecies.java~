@@ -1,0 +1,141 @@
+package PokemonGame;
+
+public enum PkmnSpecies{
+    BULBASAUR("Bulbasaur",
+        Category.SEED,
+        new PkmnType[]{PkmnType.GRASS, PkmnType.POISON},
+        new Ability[]{},
+        new PkmnMove[]{PkmnMove.TACKLE},
+        new byte[]{1},
+        new PkmnMove[]{},
+        new PkmnMove[]{},
+        new PkmnMove[]{},
+        LevelingRate.MEDIUM_SLOW,
+        22,
+        70,
+        new byte[]{45,49,49,65,65,45},
+        new byte[]{0,0,0,1,0,0},
+        16,
+        223,
+        45),
+    IVYSAUR("Ivysaur",
+        Category.SEED,
+        new PkmnType[]{PkmnType.GRASS, PkmnType.POISON},
+        new Ability[]{},
+        new PkmnMove[]{PkmnMove.TACKLE},
+        new byte[]{1},
+        new PkmnMove[]{},
+        new PkmnMove[]{},
+        new PkmnMove[]{},
+        LevelingRate.MEDIUM_SLOW,
+        22,
+        70,
+        new byte[]{45,49,49,65,65,45},
+        new byte[]{0,0,0,1,0,0},
+        16,
+        223,
+        45),
+    VENUSAUR("Bulbasaur",
+        Category.SEED,
+        new PkmnType[]{PkmnType.GRASS, PkmnType.POISON},
+        new Ability[]{},
+        new PkmnMove[]{PkmnMove.TACKLE},
+        new byte[]{1},
+        new PkmnMove[]{},
+        new PkmnMove[]{},
+        new PkmnMove[]{},
+        LevelingRate.MEDIUM_SLOW,
+        22,
+        70,
+        new byte[]{45,49,49,65,65,45},
+        new byte[]{0,0,0,1,0,0},
+        16,
+        223,
+        45);
+
+    private String name;
+    private Category category;
+    private PkmnSpecies evolvesInto;
+    private PkmnType[] pkmnType;
+    private EggGroup[] eggGroups;
+    private Ability[] abilities;
+    private PkmnMove[] pkmnMovesLearnableByLeveling;
+    private byte[] learnLevels;
+    private PkmnMove[] pkmnMovesLearnableByTMHM;
+    private PkmnMove[] pkmnMovesLearnableByTutor;
+    private PkmnMove[] eggPkmnMoves;
+    private LevelingRate levelingRate;
+    private byte baseEggCycles;
+    private byte baseFriendship;
+    private byte[] baseStats;
+    private byte[] evYields;
+    private byte evolvesAtLevel;
+    private byte genderThreshold;
+    private byte catchRate;
+
+    static {
+        BULBASAUR.evolvesInto = IVYSAUR;
+        IVYSAUR.evolvesInto = VENUSAUR;
+    }
+
+    PkmnSpecies {
+
+    public Category getCategory() {
+        return this.category;
+    }
+
+    public PkmnSpecies getEvolvesInto() {
+        return this.evolvesInto;
+    }
+
+    public PkmnType[] getPkmnType() {
+        return this.pkmnType;
+    }
+
+    public EggGroup getEggGroup() {
+        return this.eggGroup;
+    }
+
+    public Ability[] getAbilities() {
+        return this.abilities;
+    }
+
+    public PkmnMove[] getPkmnMovesLearnableByLeveling() {
+        return this.pkmnMovesLearnableByLeveling;
+    }
+
+    public PkmnMove getPkmnMovesLearnableByLeveling(byte currentLvl) {
+        for (int i = 0; i < learnLevels.length - 1; i++) {
+            if (currentLvl == learnLevels[i]) {
+                return pkmnMovesLearnableByLeveling[i];
+            }
+        }
+        return null;
+    }
+
+    public PkmnMove[] getPkmnMovesLearnableByTMHM() {
+        return this.pkmnMovesLearnableByTMHM;
+    }
+
+    public boolean getPkmnMovesLearnableByTMHM(PkmnMove attempted) {
+        for (PkmnMove pkmnMove : pkmnMovesLearnableByTMHM) {
+            if (attempted == pkmnMove) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public PkmnMove[] getPkmnMovesLearnableByTutor() {
+        return this.pkmnMovesLearnableByTutor;
+    }
+
+    public boolean getPkmnMovesLearnableByTutor(PkmnMove attempted) {
+        for (PkmnMove pkmnMove : pkmnMovesLearnableByTutor) {
+            if (attempted == pkmnMove) {
+                return true;
+            }
+        }
+        return false;
+    }
+}

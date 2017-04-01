@@ -1,0 +1,14 @@
+package PokemonGame;
+
+/**
+ * Helpful stuff
+ *
+ * @author jmurphy61
+ * @version 1.0
+ *
+ */
+public class Utils{
+    public static byte b(int integer) {
+        return (byte) integer;
+    }
+}

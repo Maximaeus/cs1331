@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="CarTests" tests="10" skipped="0" failures="0" errors="0" timestamp="2017-03-10T21:20:10" hostname="gridNote" time="0.016">
+  <properties/>
+  <testcase name="priusGetRange" classname="CarTests" time="0.016"/>
+  <testcase name="carGetRange" classname="CarTests" time="0.0"/>
+  <testcase name="carExists" classname="CarTests" time="0.0"/>
+  <testcase name="carInterface" classname="CarTests" time="0.0"/>
+  <testcase name="hummerImplements" classname="CarTests" time="0.0"/>
+  <testcase name="hummerGetHorsepower" classname="CarTests" time="0.0"/>
+  <testcase name="carGetHorsepower" classname="CarTests" time="0.0"/>
+  <testcase name="hummerGetRange" classname="CarTests" time="0.0"/>
+  <testcase name="priusGetHorsepower" classname="CarTests" time="0.0"/>
+  <testcase name="priusImplements" classname="CarTests" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,10 @@
+print("Starting Move writer script")
+running = true
+f = open('output', 'w')
+while (running):
+    f.write("    ")
+    f.write(prompt("MOVE (all caps): "))
+    f.write(" (\"")
+    f.write(prompt("String name: "))
+    f.write("\", \\String name/n")
+    running = false

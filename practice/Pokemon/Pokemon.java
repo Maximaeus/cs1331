@@ -1,0 +1,77 @@
+package PokemonGame;
+
+public abstract class Pokemon{
+    private String name;
+    private PkmnSpecies pkmnSpecies;
+    private Gender gender;
+    Integer personalityValue;
+    private int level;
+    private Nature nature;
+    private Ability ability;
+    //private Trainer owner;
+    private int friendly;
+    private int hp;
+    private int atk;
+    private int def;
+    private int spAtk;
+    private int spDef;
+    private int spd;
+
+    public Pokemon(String name,
+                   Gender gender,
+                   Integer personalityValue,
+                   int level,
+                   Nature nature,
+                   int friendly,
+                   int hp,
+                   int atk,
+                   int def,
+                   int spAtk,
+                   int spDef,
+                   int spd) {
+        this.name = name;
+        this.gender = gender;
+        this.personalityValue = personalityValue;
+        this.level = level;
+        this.nature = nature;
+        this.friendly = friendly;
+        this.hp = hp;
+        this.atk = atk;
+        this.def = def;
+        this.spAtk = spAtk;
+        this.spDef = spDef;
+        this.spd = spd;
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (other == null) { return false; }
+        if (!(other instanceof Pokemon)) { return false; }
+        return ((Pokemon) other).name == this.name
+            && ((Pokemon) other).gender == this.gender
+            && ((Pokemon) other).level == this.level
+            && ((Pokemon) other).hp == this.hp
+            && ((Pokemon) other).atk ==  this.atk
+            && ((Pokemon) other).def == this.def
+            && ((Pokemon) other).spAtk == this.spAtk
+            && ((Pokemon) other).spDef == this.spDef
+            && ((Pokemon) other).spd == this.spd;
+    }
+
+    @Override
+    public String toString() {
+        return name + ", "
+             + gender + ", "
+             + level + ", "
+             + nature + ", "
+             + hp + ", "
+             + atk + ", "
+             + def + ", "
+             + spAtk + ", "
+             + spDef + ", "
+             + spd;
+    }
+
+    public static void main(String[] args) {
+    }
+}

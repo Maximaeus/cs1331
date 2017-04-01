@@ -1,0 +1,7 @@
+a collection is any object that you can add things to, contains() something, can be isEmpty(), has an iterator(), can utilize remove()
+has a size()
+
+List extends collection, adds methods that have to do with order
+ArrayList extends LIst
+
+**Generics**

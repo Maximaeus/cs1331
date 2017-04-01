@@ -1,0 +1,72 @@
+/**
+ * Represent a card, has a name and description
+ *
+ * @author jmurphy61
+ * @version 1.0
+ */
+public class Card {
+    private String name, description;
+
+    /**
+     *Creates a Card with the passed parameters
+     *
+     *@param name name of the card
+     *@param description text that explains the card and its effects
+     *
+     */
+    public Card(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
+
+    /**
+     * @return the name of this Card
+     *
+     */
+    public String getName() {
+        return this.name;
+    }
+
+    /**
+     * @return the description of this Card
+     *
+     */
+    public String getDescription() {
+        return this.description;
+    }
+
+    /**
+     * Sets this Card's name to the passed parameter
+     *
+     * @param name a new name for this Card
+     *
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * Sets this Card's description to the passed parameter
+     *
+     * @param description new description for this Card
+     *
+     */
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (this == other) {
+            return true;
+        }
+        return other instanceof Card
+            && name.equals(((Card) other).getName())
+            && description.equals(((Card) other).getDescription());
+    }
+
+    @Override
+    public String toString() {
+        return getName() + ": " + getDescription();
+    }
+}

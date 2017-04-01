@@ -1,0 +1,19 @@
+/**
+ * Main entry point for the Olympics program.
+ *
+ * @author jmurphy61
+ * @version 1.0
+ *
+ */
+public class Olympics {
+    /**
+     * @param args unused
+     *
+     */
+    public static void main(String[] args) {
+        Athlete[] athletes = {new JavelinThrower("James", false, 30.1),
+                              new ProSitter("Patty", true, 7),
+                              new SoccerPlayer("Santiago", false, false),
+                              new TennisPlayer("Terry", false, 90)};
+    }
+}

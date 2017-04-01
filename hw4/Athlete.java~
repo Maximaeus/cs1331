@@ -1,0 +1,146 @@
+/**
+ * Represents an Athlete that can play sports at the Olympics!
+ *
+ * @author Confused Coder
+ * @version 1.0
+ */
+public class Athlete {
+    private int hunger;
+    private String name;
+    private String sport;
+    private int serveSpeed;
+    private boolean canScoreGoal;
+    private double javelinDamage;
+    private boolean isACheater;
+
+    /**
+     * Public constructor.
+     *
+     * @param name the name of the athlete.
+     * @param sport the sport the athlete plays.
+     * @param serveSpeed the tennis serve speed of the athlete.
+     * @param canScoreGoal whether or not this athlete can score a soccer goal.
+     * @param javelinDamage how much damage this athlete's javelin inflcits.
+     * @param isACheater if this athlete is a cheater or not.
+     */
+    public Athlete(String name, String sport, int serveSpeed,
+        boolean canScoreGoal, double javelinDamage, boolean isACheater) {
+        this.hunger = 0;
+        this.name = name;
+        this.sport = sport;
+        this.serveSpeed = serveSpeed;
+        this.canScoreGoal = canScoreGoal;
+        this.javelinDamage = javelinDamage;
+        this.isACheater = isACheater;
+    }
+
+    /**
+     * @return the hunger of this athlete.
+     */
+    public int getHunger() {
+        return this.hunger;
+    }
+
+    /**
+     * @return the name of this athlete.
+     */
+    public String getName() {
+        return this.name;
+    }
+
+    /**
+     * @return the tennis serve speed of this athlete.
+     */
+    public int getServeSpeed() {
+        return this.serveSpeed;
+    }
+
+    /**
+     * @return whether or not this athlete is good at soccer.
+     */
+    public boolean getCanScoreGoal() {
+        return this.canScoreGoal;
+    }
+
+    /**
+     * @return the damage this athlete's javelin inflicts.
+     */
+    public double getJavelinDamage() {
+        return this.javelinDamage;
+    }
+
+    /**
+     * @return whether or not this athlete is a cheater.
+     */
+    public boolean getIsACheater() {
+        return this.isACheater;
+    }
+
+    /**
+     * Has the athlete serve a tennis ball.
+     */
+    public void serve() {
+        System.out.println(String.format("%s serves the ball at %dmph!",
+            getName(), this.serveSpeed));
+    }
+
+    /**
+     * Has the athlete shoot for a goal.
+     */
+    public void shootForGoal() {
+        System.out.println(String.format("%s shoots and %s!",
+            getName(), canScoreGoal ? "scores" : "misses"));
+    }
+
+    /**
+     * Has the athlete throw their javelin.
+     */
+    public void throwJavelin() {
+        System.out.println(String.format("%s throws the javelin and inflicts"
+            + " %f damage!", getName(), this.javelinDamage));
+    }
+
+    /**
+     * Has the athlete exercise. Will make the athlete hungry by increasing
+     * their hunger by the number of pushups.
+     *
+     * @param numberOfPushups the number of pushups the athlete should do.
+     */
+    public void exercise(int numberOfPushups) {
+        System.out.println(String.format("%s does %d pushups and works up"
+            + " quite an appetite!", getName(), numberOfPushups));
+        this.hunger += numberOfPushups;
+    }
+
+    /**
+     * Has the athlete eat some food to decrease their hunger by foodAmount.
+     *
+     * @param foodAmount how much to decrease hunger by.
+     * @param foodType the type of food the athlete eats.
+     */
+    public void eat(int foodAmount, String foodType) {
+        System.out.println(String.format("%s eats %d of the %s!",
+            getName(), foodAmount, foodType));
+        this.hunger = Math.max(this.hunger - foodAmount, 0);
+    }
+
+    /**
+     * Has the athlete play something for their particular sport.
+     */
+    public void play() {
+        switch (this.sport) {
+            case "tennis" :
+                serve();
+                break;
+            case "soccer" :
+                shootForGoal();
+                break;
+            case "javelin" :
+                throwJavelin();
+                break;
+            default :
+                System.out.println(String.format("%s can't play a sport!",
+                    getName()));
+        }
+    }
+}

@@ -1,0 +1,108 @@
+    WRAP ("Wrap", //String name
+        "A long body, vines, or the like are used to wrap and squeeze the target for four to five turns.", //String description
+        "Temporarily stops the crowd from growing excited.", //String contestDesc
+        "Earn a higher score the later the Pokémon performs.", //String superContestDesc
+        "Temporarily stops the crowd from growing excited.", //String contestSpectacularDesc
+        PkmnType.NORMAL, //PkmnType pkmnType
+        PkmnMoveActionType.PHYSICAL, //PkmnMoveActionType pkmnMoveActionType
+        Condition.TOUGH, //Condition contestCondition
+        Condition.TOUGH, //Condition superContestCondition
+        Condition.TOUGH, //Condition contestSpectacularCondition
+        Utils.b(20), //byte basePP
+        Utils.b(15), //byte power
+        Utils.b(90), //byte accuracy
+        Utils.b(1), //byte range
+        Utils.b(0), //byte tmNumber
+        Utils.b(0), //byte hmNumber
+        Utils.b(3), //byte contestAppeal
+        Utils.b(0), //byte contestJam
+        Utils.b(0), //byte superContestAppeal
+        Utils.b(3), //byte contestSpectacularAppeal
+        Utils.b(0), //byte contestSpectacularJam
+        true, //boolean contact
+        true, //boolean affectedByProtect
+        false, //boolean affectedByMagicCoat
+        false, //boolean affectedBySnatch
+        true, //boolean affectedByMirror
+        true), //boolean affectedByKingsRock
+    TAKE_DOWN ("Take Down", //String name
+        "A reckless, full-body charge attack for slamming into the target. This also damages the user a little.", //String description
+        "After this move, the user is more easily startled.", //String contestDesc
+        "A basic performance using a move known by the Pokémon.", //String superContestDesc
+        "A very appealing move, but after using this move, the user is more easily startled.", //String contestSpectacularDesc
+        PkmnType.NORMAL, //PkmnType pkmnType
+        PkmnMoveActionType.PHYSICAL, //PkmnMoveActionType pkmnMoveActionType
+        Condition.TOUGH, //Condition contestCondition
+        Condition.TOUGH, //Condition superContestCondition
+        Condition.TOUGH, //Condition contestSpectacularCondition
+        Utils.b(20), //byte basePP
+        Utils.b(90), //byte power
+        Utils.b(85), //byte accuracy
+        Utils.b(1), //byte range
+        Utils.b(0), //byte tmNumber
+        Utils.b(0), //byte hmNumber
+        Utils.b(6), //byte contestAppeal
+        Utils.b(0), //byte contestJam
+        Utils.b(3), //byte superContestAppeal
+        Utils.b(6), //byte contestSpectacularAppeal
+        Utils.b(0), //byte contestSpectacularJam
+        true, //boolean contact
+        true, //boolean affectedByProtect
+        false, //boolean affectedByMagicCoat
+        false, //boolean affectedBySnatch
+        true, //boolean affectedByMirror
+        true), //boolean affectedByKingsRock
+    THRASH ("Thrash", //String name
+        "The user rampages and attacks for two to three turns. The user then becomes confused.", //String description
+        "Jams the others, and misses one turn of appeals.", //String contestDesc
+        "Allows performance of the same move twice in a row.", //String superContestDesc
+        "A very appealing move, but after using this move, the user is more easily startled.", //String contestSpectacularDesc
+        PkmnType.NORMAL, //PkmnType pkmnType
+        PkmnMoveActionType.PHYSICAL, //PkmnMoveActionType pkmnMoveActionType
+        Condition.TOUGH, //Condition contestCondition
+        Condition.TOUGH, //Condition superContestCondition
+        Condition.TOUGH, //Condition contestSpectacularCondition
+        Utils.b(10), //byte basePP
+        Utils.b(120), //byte power
+        Utils.b(100), //byte accuracy
+        Utils.b(0), //byte range
+        Utils.b(0), //byte tmNumber
+        Utils.b(0), //byte hmNumber
+        Utils.b(4), //byte contestAppeal
+        Utils.b(4), //byte contestJam
+        Utils.b(2), //byte superContestAppeal
+        Utils.b(6), //byte contestSpectacularAppeal
+        Utils.b(0), //byte contestSpectacularJam
+        true, //boolean contact
+        true, //boolean affectedByProtect
+        false, //boolean affectedByMagicCoat
+        false, //boolean affectedBySnatch
+        true, //boolean affectedByMirror
+        true), //boolean affectedByKingsRock
+    DOUBLE_EDGE ("Double Edge", //String name
+        "A reckless, life-risking tackle. This also damages the user quite a lot.", //String description
+        "After this move, the user is more easily startled.", //String contestDesc
+        "Earn +15 if all the Pokémon choose the same Judge.", //String superContestDesc
+        "A very appealing move, but after using this move, the user is more easily startled.", //String contestSpectacularDesc
+        PkmnType.NORMAL, //PkmnType pkmnType
+        PkmnMoveActionType.PHYSICAL, //PkmnMoveActionType pkmnMoveActionType
+        Condition.TOUGH, //Condition contestCondition
+        Condition.TOUGH, //Condition superContestCondition
+        Condition.TOUGH, //Condition contestSpectacularCondition
+        Utils.b(15), //byte basePP
+        Utils.b(120), //byte power
+        Utils.b(100), //byte accuracy
+        Utils.b(1), //byte range
+        Utils.b(0), //byte tmNumber
+        Utils.b(0), //byte hmNumber
+        Utils.b(6), //byte contestAppeal
+        Utils.b(0), //byte contestJam
+        Utils.b(0), //byte superContestAppeal
+        Utils.b(6), //byte contestSpectacularAppeal
+        Utils.b(0), //byte contestSpectacularJam
+        true, //boolean contact
+        true, //boolean affectedByProtect
+        false, //boolean affectedByMagicCoat
+        false, //boolean affectedBySnatch
+        true, //boolean affectedByMirror
+        true), //boolean affectedByKingsRock

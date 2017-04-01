@@ -1,0 +1,139 @@
+package PokemonGame;
+
+public enum Species{
+    BULBASAUR("Bulbasaur",
+        Category.SEED,
+        new PkmnType[]{PkmnType.GRASS, PkmnType.POISON},
+        new Ability[]{},
+        new Move[]{Move.TACKLE},
+        new byte[]{1},
+        new Move[]{},
+        new Move[]{},
+        new Move[]{},
+        LevelingRate.MEDIUM_SLOW,
+        22,
+        70,
+        new byte[]{45,49,49,65,65,45},
+        new byte[]{0,0,0,1,0,0},
+        16,
+        223,
+        45),
+    IVYSAUR("Ivysaur",
+        Category.SEED,
+        new PkmnType[]{PkmnType.GRASS, PkmnType.POISON},
+        new Ability[]{},
+        new Move[]{Move.TACKLE},
+        new byte[]{1},
+        new Move[]{},
+        new Move[]{},
+        new Move[]{},
+        LevelingRate.MEDIUM_SLOW,
+        22,
+        70,
+        new byte[]{45,49,49,65,65,45},
+        new byte[]{0,0,0,1,0,0},
+        16,
+        223,
+        45),
+    VENUSAUR("Bulbasaur",
+        Category.SEED,
+        new PkmnType[]{PkmnType.GRASS, PkmnType.POISON},
+        new Ability[]{},
+        new Move[]{Move.TACKLE},
+        new byte[]{1},
+        new Move[]{},
+        new Move[]{},
+        new Move[]{},
+        LevelingRate.MEDIUM_SLOW,
+        22,
+        70,
+        new byte[]{45,49,49,65,65,45},
+        new byte[]{0,0,0,1,0,0},
+        16,
+        223,
+        45);
+
+    private String name;
+    private Category category;
+    private Species evolvesInto;
+    private PkmnType[] pkmnType;
+    private EggGroup[] eggGroups;
+    private Ability[] abilities;
+    private Move[] movesLearnableByLeveling;
+    private byte[] learnLevels;
+    private Move[] movesLearnableByTMHM;
+    private Move[] movesLearnableByTutor;
+    private Move[] eggMoves;
+    private LevelingRate levelingRate;
+    private byte baseEggCycles;
+    private byte baseFriendship;
+    private byte[] baseStats;
+    private byte[] evYields;
+    private byte evolvesAtLevel;
+    private byte genderThreshold;
+    private byte catchRate;
+
+    static {
+        BULBASAUR.evolvesInto = IVYSAUR;
+        IVYSAUR.evolvesInto = VENUSAUR;
+    }
+
+    public Category getCategory() {
+        return this.category;
+    }
+
+    public Species getEvolvesInto() {
+        return this.evolvesInto;
+    }
+
+    public PkmnType[] getPkmnType() {
+        return this.pkmnType;
+    }
+
+    public EggGroup getEggGroup() {
+        return this.eggGroup;
+    }
+
+    public Ability[] getAbilities() {
+        return this.abilities;
+    }
+
+    public Move[] getMovesLearnableByLeveling() {
+        return this.movesLearnableByLeveling;
+    }
+
+    public Move getMovesLearnableByLeveling(byte currentLvl) {
+        for (int i = 0; i < learnLevels.length - 1; i++) {
+            if (currentLvl == learnLevels[i]) {
+                return movesLearnableByLeveling[i];
+            }
+        }
+        return null;
+    }
+
+    public Move[] getMovesLearnableByTMHM() {
+        return this.movesLearnableByTMHM;
+    }
+
+    public boolean getMovesLearnableByTMHM(Move attempted) {
+        for (Move move : movesLearnableByTMHM) {
+            if (attempted == move) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Move[] getMovesLearnableByTutor() {
+        return this.movesLearnableByTutor;
+    }
+
+    public boolean getMovesLearnableByTutor(Move attempted) {
+        for (Move move : movesLearnableByTutor) {
+            if (attempted == move) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
